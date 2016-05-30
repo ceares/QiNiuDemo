@@ -1,0 +1,6 @@
+framework module ServiceLibrary {
+  umbrella header "ServiceLibrary.h"
+
+  export *
+  module * { export * }
+}
