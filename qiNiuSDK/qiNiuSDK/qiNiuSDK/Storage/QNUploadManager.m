@@ -52,7 +52,7 @@
     static dispatch_once_t once;
     static QNUploadManager* sharedInstance = nil;
     dispatch_once(&once, ^{
-        sharedInstance = [[QNUploadManager alloc] init];
+        sharedInstance = [[QNUploadManager alloc] initWithConfiguration:nil];
     });
     return sharedInstance;
 }

@@ -98,6 +98,9 @@
 		308DA2471CFC29CC00C1E50E /* QNUploadOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 308DA2191CFC29CC00C1E50E /* QNUploadOption.m */; };
 		308DA2481CFC29CC00C1E50E /* QNUpToken.h in Headers */ = {isa = PBXBuildFile; fileRef = 308DA21A1CFC29CC00C1E50E /* QNUpToken.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		308DA2491CFC29CC00C1E50E /* QNUpToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 308DA21B1CFC29CC00C1E50E /* QNUpToken.m */; };
+		309C67A81CFD6A2100BA91FF /* QiniuAuthPolicy.h in Headers */ = {isa = PBXBuildFile; fileRef = 309C67A61CFD6A2100BA91FF /* QiniuAuthPolicy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		309C67A91CFD6A2100BA91FF /* QiniuAuthPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 309C67A71CFD6A2100BA91FF /* QiniuAuthPolicy.m */; };
+		309C67AB1CFD6B0D00BA91FF /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 309C67AA1CFD6B0D00BA91FF /* CoreFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -191,6 +194,9 @@
 		308DA2191CFC29CC00C1E50E /* QNUploadOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNUploadOption.m; sourceTree = "<group>"; };
 		308DA21A1CFC29CC00C1E50E /* QNUpToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNUpToken.h; sourceTree = "<group>"; };
 		308DA21B1CFC29CC00C1E50E /* QNUpToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNUpToken.m; sourceTree = "<group>"; };
+		309C67A61CFD6A2100BA91FF /* QiniuAuthPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QiniuAuthPolicy.h; sourceTree = "<group>"; };
+		309C67A71CFD6A2100BA91FF /* QiniuAuthPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QiniuAuthPolicy.m; sourceTree = "<group>"; };
+		309C67AA1CFD6B0D00BA91FF /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CoreFoundation.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +204,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				309C67AB1CFD6B0D00BA91FF /* CoreFoundation.framework in Frameworks */,
 				306BC7A61CFC378100495573 /* AFNetworking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -216,6 +223,7 @@
 		306BC7A41CFC378100495573 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				309C67AA1CFD6B0D00BA91FF /* CoreFoundation.framework */,
 				306BC7A51CFC378100495573 /* AFNetworking.framework */,
 			);
 			path = Frameworks;
@@ -243,6 +251,8 @@
 		308DA1471CFC284200C1E50E /* qiNiuSDK */ = {
 			isa = PBXGroup;
 			children = (
+				309C67A61CFD6A2100BA91FF /* QiniuAuthPolicy.h */,
+				309C67A71CFD6A2100BA91FF /* QiniuAuthPolicy.m */,
 				308DA1E91CFC29CC00C1E50E /* qiNiuSDK */,
 				308DA1641CFC296400C1E50E /* HappyDNS */,
 				308DA1481CFC284200C1E50E /* qiNiuSDK.h */,
@@ -465,6 +475,7 @@
 				308DA1861CFC296400C1E50E /* QNDnsManager.h in Headers */,
 				308DA21C1CFC29CC00C1E50E /* QN_GTM_Base64.h in Headers */,
 				308DA2431CFC29CC00C1E50E /* QNUploadManager.h in Headers */,
+				309C67A81CFD6A2100BA91FF /* QiniuAuthPolicy.h in Headers */,
 				308DA22F1CFC29CC00C1E50E /* QNUrlSafeBase64.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -614,6 +625,7 @@
 				308DA2441CFC29CC00C1E50E /* QNUploadManager.m in Sources */,
 				308DA22A1CFC29CC00C1E50E /* QNPHAssetFile.m in Sources */,
 				308DA18B1CFC296400C1E50E /* QNNetworkInfo.m in Sources */,
+				309C67A91CFD6A2100BA91FF /* QiniuAuthPolicy.m in Sources */,
 				308DA18D1CFC296400C1E50E /* QNRecord.m in Sources */,
 				308DA1951CFC296400C1E50E /* QNHijackingDetectWrapper.m in Sources */,
 				308DA21D1CFC29CC00C1E50E /* QN_GTM_Base64.m in Sources */,

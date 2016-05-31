@@ -160,9 +160,13 @@
 		<data>
 		yztnKa0bZia364Izi+bgFg5SMhU=
 		</data>
+		<key>Headers/QiniuAuthPolicy.h</key>
+		<data>
+		6anfKbQ1tU2VgV4/LzohXJWSD9U=
+		</data>
 		<key>Headers/qiNiuSDK.h</key>
 		<data>
-		eTeGjYwgDSI/9ov7kya5VhyDVnI=
+		PLbnPAhUHEmZ2/R5XdNo1yjm1q0=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -608,15 +612,26 @@
 			3YKbG3oI2x3rV2fgcgWT4UW3DnV8OuN69V1Agbu4Y/U=
 			</data>
 		</dict>
+		<key>Headers/QiniuAuthPolicy.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			6anfKbQ1tU2VgV4/LzohXJWSD9U=
+			</data>
+			<key>hash2</key>
+			<data>
+			/fJmDAZ5B2+sDVQx8ObT79WicyHNSSJAoOaruRO/uag=
+			</data>
+		</dict>
 		<key>Headers/qiNiuSDK.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			eTeGjYwgDSI/9ov7kya5VhyDVnI=
+			PLbnPAhUHEmZ2/R5XdNo1yjm1q0=
 			</data>
 			<key>hash2</key>
 			<data>
-			G2sWyTIZVddILFpQF3cat1kc3vpTjcQzJYf2kqS98Sg=
+			9FBA2vFMTcji9Vx10rgsOv1vBu40Yol5opzPtb69VXI=
 			</data>
 		</dict>
 		<key>LICENSE</key>

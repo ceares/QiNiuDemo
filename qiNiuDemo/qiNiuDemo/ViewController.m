@@ -10,14 +10,13 @@
 #import <qiNiuSDK/QiNiuSDK.h>
 #import <qiNiuSDK/HappyDNS.h>
 #import <qiNiuSDK/QNUploadOption.h>
-
 #import "UIImage+ResizeMagick.h"
 
 @interface ViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 @property (nonatomic, strong) NSString *token;
 @property (nonatomic, strong) UIImage *pickImage;
-@property (nonatomic, strong) QNUploadManager *upManager;
+//@property (nonatomic, strong) QNUploadManager *upManager;
 
 @end
 
@@ -27,9 +26,7 @@
     [super viewDidLoad];
     self.title = @"七牛云上传测试";
 
-    self.token = @"0E7b15eWUOy70z0xMyZzI4tJavS9dnb2b9mrqszY:fJp8vI5nSZrrxctW8rPQhze4IQY=:eyJzY29wZSI6ImNlc2hpIiwiZGVhZGxpbmUiOjE0NjQ2NDM0Nzd9";
-
-    self.upManager = [[QNUploadManager alloc] init];
+    self.token = [QiniuAuthPolicy token];
 
     //上传token 文档地址
     // http://developer.qiniu.com/docs/v6/api/reference/security/upload-token.html
@@ -66,7 +63,7 @@
                                                                checkCrc:NO
                                                      cancellationSignal:nil];
 
-    [self.upManager putFile:filePath
+    [[QNUploadManager sharedInstance] putFile:filePath
                         key:fileName
                       token:self.token
                    complete: ^(QNResponseInfo *info, NSString *key, NSDictionary *resp) {
@@ -94,7 +91,7 @@
                                                                checkCrc:NO
                                                      cancellationSignal:nil];
 
-    [self.upManager putData:data
+    [[QNUploadManager sharedInstance] putData:data
                         key:fileName
                       token:self.token
                    complete: ^(QNResponseInfo *info, NSString *key, NSDictionary *resp) {
@@ -123,7 +120,7 @@
                                                                checkCrc:NO
                                                      cancellationSignal:nil];
 
-    [self.upManager putData:data
+    [[QNUploadManager sharedInstance] putData:data
                         key:fileName
                       token:self.token
                    complete: ^(QNResponseInfo *info, NSString *key, NSDictionary *resp) {

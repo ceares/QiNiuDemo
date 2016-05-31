@@ -13,6 +13,9 @@
 #import "QNUploadManager.h"
 #import "QNUploadOption.h"
 #import "QNUrlSafeBase64.h"
+#import "QN_GTM_Base64.h"
+#import "QiniuAuthPolicy.h"
+
 #import "HappyDNS.h"
 
 // 0.0.1
