@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		3035E1771DF566DC0043F295 /* QNFileRecorder.h in Headers */ = {isa = PBXBuildFile; fileRef = 308DA20B1CFC29CC00C1E50E /* QNFileRecorder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		306BC7A61CFC378100495573 /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 306BC7A51CFC378100495573 /* AFNetworking.framework */; };
 		308DA1491CFC284200C1E50E /* qiNiuSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 308DA1481CFC284200C1E50E /* qiNiuSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		308DA1501CFC284200C1E50E /* qiNiuSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 308DA1451CFC284200C1E50E /* qiNiuSDK.framework */; };
@@ -401,6 +402,7 @@
 				30F6F2851D62A888007E7733 /* QNUploadOption.h in Headers */,
 				30F6F2841D62A880007E7733 /* QNUploadManager.h in Headers */,
 				30F6F2891D62A9CF007E7733 /* QNRecorderDelegate.h in Headers */,
+				3035E1771DF566DC0043F295 /* QNFileRecorder.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,6 +11,7 @@
 #import "QNUploadManager.h"
 #import "QNUploadOption.h"
 #import "QiniuAuthPolicy.h"
+#import "QNFileRecorder.h"
 
 // 0.0.2
 //! Project version number for qiNiuSDK.

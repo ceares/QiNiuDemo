@@ -7,9 +7,8 @@
 //
 
 #import "ViewController.h"
-#import <qiNiuSDK/QiNiuSDK.h>
-#import <qiNiuSDK/QNUploadOption.h>
 #import "UIImage+ResizeMagick.h"
+#import <qiNiuSDK/qiNiuSDK.h>
 
 @interface ViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
@@ -38,10 +37,11 @@
 
 - (IBAction)uploadAction:(id)sender {
 
+//    NSString *fileName = [NSString stringWithFormat:@"%@_%@.jpg", [self getDateTimeString], [self randomStringWithLength:8]];
 
+    [self updataFile:@"11111111111"];
 
-
-    [self uploadImageToQNFilePath:@"/Users/chengs/Pictures/图片/8a00ab4bc96dca1f5766a1f40188beb8.jpg"];
+//    [self uploadImageToQNFilePath:@"/Users/chengs/Pictures/图片/8a00ab4bc96dca1f5766a1f40188beb8.jpg"];
 
     //     [self uploadVedioToQNFilePath:@"/Users/chengs/Desktop/510新为空/A8A57E656FFB99F7F4C64006DAFA5B63.mp4"];
 
@@ -131,6 +131,38 @@
 
 }
 
+#pragma  断点续传测试
+-(void)updataFile:(NSString *)fileName{
+
+    /*
+     *  注意事项：1、必须保证有缓存的目录
+     *          2、必须保证文件名和缓存中的一致
+     *
+     */
+
+    NSError *error = nil;
+    //断点过程中缓存的目录
+    QNFileRecorder *file = [QNFileRecorder fileRecorderWithFolder:[NSTemporaryDirectory() stringByAppendingString:@"qiniutest"] error:&error];
+    //本地文件地址
+    NSURL *tempFile = [self createTempfileWithSize:15000 * 1024];
+    //关联缓存目录
+    QNUploadManager *upManager2 = [[QNUploadManager alloc] initWithRecorder:file];
+    //打印上传进入cancellationSignal可以取消本地上传
+    QNUploadOption *opt2 = [[QNUploadOption alloc] initWithMime:nil progressHandler:^(NSString *key, float percent) {
+        NSLog(@"continue progress %f", percent);
+    }
+                                                         params:nil
+                                                       checkCrc:NO
+                                             cancellationSignal:nil];
+    //上传代码
+    [upManager2 putFile:tempFile.path key:fileName token:[QiniuAuthPolicy token_ceshi1] complete:^(QNResponseInfo *info, NSString *k, NSDictionary *resp) {
+        NSLog(@" --->> Info: %@  ", info);
+        NSLog(@" ---------------------");
+        NSLog(@" --->> Response: %@,  ", resp);
+    }
+                 option:opt2];
+
+}
 
 #pragma mark - Helpers
 
@@ -160,6 +192,26 @@
     return randomString;
 }
 
+//在本地目录下创建一个文件
+- (NSURL *)createTempfileWithSize:(int)size {
+
+    NSString *string = [NSTemporaryDirectory() stringByAppendingPathComponent:@"12345678901_file.txt"];
+    NSURL *fileUrl = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:@"12345678901_file.txt"]];
+
+    if(![[NSFileManager defaultManager] fileExistsAtPath:string]) //如果不存在
+    {
+        NSData *data = [NSMutableData dataWithLength:size];
+        NSError *error = nil;
+        [data writeToURL:fileUrl options:NSDataWritingAtomic error:&error];
+
+    }
+    return fileUrl;
+}
+
+- (void)removeTempfile:(NSURL *)fileUrl {
+    NSError *error = nil;
+    [[NSFileManager defaultManager] removeItemAtURL:fileUrl error:&error];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
