@@ -8,7 +8,6 @@
 
 #import "ViewController.h"
 #import <qiNiuSDK/QiNiuSDK.h>
-#import <qiNiuSDK/HappyDNS.h>
 #import <qiNiuSDK/QNUploadOption.h>
 #import "UIImage+ResizeMagick.h"
 
@@ -26,8 +25,6 @@
     [super viewDidLoad];
     self.title = @"七牛云上传测试";
 
-    self.token = [QiniuAuthPolicy token];
-
     //上传token 文档地址
     // http://developer.qiniu.com/docs/v6/api/reference/security/upload-token.html
 
@@ -44,7 +41,7 @@
 
 
 
-    [self uploadFileToQNFilePath:@"/Users/chengs/Desktop/510新为空/A8A57E656FFB99F7F4C64006DAFA5B63.mp4"];
+    [self uploadImageToQNFilePath:@"/Users/chengs/Pictures/图片/8a00ab4bc96dca1f5766a1f40188beb8.jpg"];
 
     //     [self uploadVedioToQNFilePath:@"/Users/chengs/Desktop/510新为空/A8A57E656FFB99F7F4C64006DAFA5B63.mp4"];
 
@@ -52,6 +49,7 @@
 
 
 }
+
 - (void)uploadFileToQNFilePath:(NSString *)filePath {
 
     NSString *fileName = [NSString stringWithFormat:@"%@_%@_%@.mp4", [self getDateTimeString], [self randomStringWithLength:8],[self getDateTimeString]];
@@ -65,7 +63,7 @@
 
     [[QNUploadManager sharedInstance] putFile:filePath
                         key:fileName
-                      token:self.token
+                      token:[QiniuAuthPolicy token_ceshi1]
                    complete: ^(QNResponseInfo *info, NSString *key, NSDictionary *resp) {
 
                        NSLog(@" --->> Info: %@  ", info);
@@ -93,7 +91,7 @@
 
     [[QNUploadManager sharedInstance] putData:data
                         key:fileName
-                      token:self.token
+                      token:[QiniuAuthPolicy token_ceshi1]
                    complete: ^(QNResponseInfo *info, NSString *key, NSDictionary *resp) {
 
                        NSLog(@" --->> Info: %@  ", info);
@@ -101,9 +99,6 @@
                        NSLog(@" --->> Response: %@,  ", resp);
                    }
                      option:uploadOption];
-
-
-
 
 }
 
@@ -122,7 +117,7 @@
 
     [[QNUploadManager sharedInstance] putData:data
                         key:fileName
-                      token:self.token
+                      token:[QiniuAuthPolicy token_ceshi1]
                    complete: ^(QNResponseInfo *info, NSString *key, NSDictionary *resp) {
 
                        NSLog(@" --->> Info: %@  ", info);

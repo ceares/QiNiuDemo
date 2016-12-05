@@ -12,6 +12,11 @@
 #import "QNUrlSafeBase64.h"
 #import "QN_GTM_Base64.h"
 
+#define AccessKey @"0E7b15eWUOy70z0xMyZzI4tJavS9dnb2b9mrqszY"
+#define SecretKey @"9zyzOj-B-gCca-D81MiOVdctmYFM3Q1YVXcD48wZ"
+
+#define ceshi1 @"ceshi1"
+
 @implementation QiniuAuthPolicy
 
 + (NSString*)dictionryToJSONString:(NSMutableDictionary *)dictionary
@@ -22,11 +27,11 @@
     return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
 }
 
-+ (NSString *)token{
++ (NSString *)token_ceshi1{
 
-    return [QiniuAuthPolicy makeToken:@"0E7b15eWUOy70z0xMyZzI4tJavS9dnb2b9mrqszY" secretKey:@"9zyzOj-B-gCca-D81MiOVdctmYFM3Q1YVXcD48wZ"];
-
+    return [QiniuAuthPolicy makeToken:AccessKey secretKey:SecretKey baseName:[self marshal:ceshi1]];
 }
+
 
 + (NSString *) hmacSha1Key:(NSString*)key textData:(NSString*)text
  {
@@ -45,11 +50,10 @@
      return hash;
  }
 
-+ (NSString *)makeToken:(NSString *)accessKey secretKey:(NSString *)secretKey
++ (NSString *)makeToken:(NSString *)accessKey secretKey:(NSString *)secretKey baseName:(NSString *)baseName
 {
 
     //名字
-    NSString *baseName = [self marshal];
     baseName = [baseName stringByReplacingOccurrencesOfString:@" " withString:@""];
     baseName = [baseName stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     NSData   *baseNameData = [baseName dataUsingEncoding:NSUTF8StringEncoding];
@@ -62,21 +66,40 @@
     return token;
 }
 
-+ (NSString *)marshal
++ (NSString *)marshal:(NSString *)Scope
 {
     time_t deadline;
     time(&deadline);
 
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
 
-    [dic setObject:@"ceshi" forKey:@"scope"];
+    [dic setObject:Scope forKey:@"scope"];
 
-    NSNumber *escapeNumber = [NSNumber numberWithLongLong:3464706673];
+    NSInteger currTime = [NSDate date].timeIntervalSince1970 + 60 *5;
+    NSNumber *escapeNumber = [NSNumber numberWithInteger:currTime];
     [dic setObject:escapeNumber forKey:@"deadline"];
 
     NSString *json = [QiniuAuthPolicy dictionryToJSONString:dic];
     
     return json;
+}
+
+
+
+#pragma mark - 私有空间
+//图片url：http://odhe8bcfz.bkt.clouddn.com/2016-09-14_15:09:56_rNTDJxV6.jpg
++ (NSString *)privateRealDownloadUrlWithUrl:(NSString *)url{
+
+    //当前时间5分钟
+    NSInteger currTime = [NSDate date].timeIntervalSince1970 + 60 *5;
+    //添加时间戳e=1473839984
+    NSString *timeUrl = [NSString stringWithFormat:@"%@?e=%@",url,@(currTime)];
+    //先sha1编码  在base64编码
+    NSString *token = [QiniuAuthPolicy hmacSha1Key:SecretKey textData:timeUrl];
+    //拼接Url
+    NSString *newUrl = [NSString stringWithFormat:@"%@&token=%@:%@",  timeUrl, AccessKey, token];
+
+    return newUrl;
 }
 
 

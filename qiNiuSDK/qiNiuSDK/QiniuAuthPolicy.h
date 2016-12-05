@@ -8,14 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+#define QiNiu_URL @"http://ofca1latq.bkt.clouddn.com"
+
+
 @interface QiniuAuthPolicy : NSObject
 
-@property(nonatomic, strong) NSString* scope;
-@property(nonatomic, strong) NSString* callbackUrl;
-@property(nonatomic, strong) NSString* callbackBodyType;
-@property(nonatomic, strong) NSString* customer;
-@property(nonatomic, assign) NSInteger* expires;
-@property(nonatomic, assign) NSInteger* escape;
++ (NSString *)token_ceshi1;
 
-+ (NSString *)token;
+
+#pragma mark - 私有空间
++ (NSString *)privateRealDownloadUrlWithUrl:(NSString *)url;
 @end
