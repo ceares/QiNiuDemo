@@ -37,6 +37,20 @@
 			remoteGlobalIDString = 308DA2591CFC2F6700C1E50E;
 			remoteInfo = qiNiuDemo;
 		};
+		30B0257F1EE940F50002624B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 30B025791EE940F50002624B /* qiNiuSDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 308DA1451CFC284200C1E50E;
+			remoteInfo = qiNiuSDK;
+		};
+		30B025811EE940F50002624B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 30B025791EE940F50002624B /* qiNiuSDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 308DA14F1CFC284200C1E50E;
+			remoteInfo = qiNiuSDKTests;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +75,7 @@
 		309C67911CFC3B0000BA91FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		309C67931CFC40B300BA91FF /* libresolv.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.9.tbd; path = usr/lib/libresolv.9.tbd; sourceTree = SDKROOT; };
 		309C67A21CFD41CB00BA91FF /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		30B025791EE940F50002624B /* qiNiuSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = qiNiuSDK.xcodeproj; path = ../qiNiuSDK/qiNiuSDK.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +120,7 @@
 		308DA2511CFC2F6700C1E50E = {
 			isa = PBXGroup;
 			children = (
+				30B025791EE940F50002624B /* qiNiuSDK.xcodeproj */,
 				309C67A21CFD41CB00BA91FF /* CoreFoundation.framework */,
 				309C67931CFC40B300BA91FF /* libresolv.9.tbd */,
 				309C678C1CFC3A0900BA91FF /* SystemConfiguration.framework */,
@@ -151,6 +167,15 @@
 				308DA25E1CFC2F6700C1E50E /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		30B0257A1EE940F50002624B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				30B025801EE940F50002624B /* qiNiuSDK.framework */,
+				30B025821EE940F50002624B /* qiNiuSDKTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,6 +268,12 @@
 			mainGroup = 308DA2511CFC2F6700C1E50E;
 			productRefGroup = 308DA25B1CFC2F6700C1E50E /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 30B0257A1EE940F50002624B /* Products */;
+					ProjectRef = 30B025791EE940F50002624B /* qiNiuSDK.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				308DA2591CFC2F6700C1E50E /* qiNiuDemo */,
@@ -251,6 +282,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		30B025801EE940F50002624B /* qiNiuSDK.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = qiNiuSDK.framework;
+			remoteRef = 30B0257F1EE940F50002624B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		30B025821EE940F50002624B /* qiNiuSDKTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = qiNiuSDKTests.xctest;
+			remoteRef = 30B025811EE940F50002624B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		308DA2581CFC2F6700C1E50E /* Resources */ = {
